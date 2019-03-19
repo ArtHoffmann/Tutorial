@@ -1,7 +1,7 @@
-<mat-sidenav-container class="example-container" fullscreen>
+<!-- <mat-sidenav-container fullscreen>
   <mat-sidenav-content>
     <div fxFill fxLayout="column">
-      <!-- Toolbar -->
+    
       <mat-toolbar fxLayoutAlign="start center" color="primary" class="menu-bar mat-elevation-z1">
         <mat-icon (click)="drawer.toggle()" [ngStyle]="{'margin':'5px'}">list</mat-icon>
         <div fxFlex="90">
@@ -14,7 +14,7 @@
       <mat-drawer-container [hasBackdrop]="true" fxFlex>
         <mat-drawer #drawer [mode]="'side'">
           <mat-nav-list>
-            <mat-list-item>
+            <mat-list-item routerLink="/user-page" routerLinkActive="active-list-item">
               <mat-icon>account_circle</mat-icon>
               Login
             </mat-list-item>
@@ -28,43 +28,70 @@
             </mat-list-item>
           </mat-nav-list>
         </mat-drawer>
-
         <mat-drawer-content fxFill>
-          <mat-card fxFlex>
-            <mat-card-title>App-Component</mat-card-title>
-            <mat-card-subtitle>Startseite</mat-card-subtitle>
-            <mat-divider></mat-divider>
-            <mat-card-content>
-              <ng-container *ngIf="users$ | async as user">
-                <mat-list *ngFor="let u of user">
-                  <mat-list-item>{{u | json}}</mat-list-item>
-                  <mat-divider></mat-divider>
-                </mat-list>
-              </ng-container>
-            </mat-card-content>
-          </mat-card>
+          <div fxFill>
+            <router-outlet></router-outlet>
+          </div>
         </mat-drawer-content>
       </mat-drawer-container>
+      
+      <div fxLayoutAlign="start center" class="custom-footer" fxLayoutAlign="none center">
+        <div fxFlex="90">
+          <span fxLayoutAlign="start start">Copyright © - Entwickelt von A H.</span>
+        </div>
+        <div fxFlex="10">
+          <span>
+            <img [ngStyle]="{'width':'96%'}" src="../assets/daimler-logo.PNG">
+          </span>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
 
-
-
-
-
-      <!-- Router outlet for navigation -->
-      <div>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #drawer>
+    <mat-nav-list>
+      <mat-list-item routerLink="/user-page" routerLinkActive="active-list-item">
+        <mat-icon>account_circle</mat-icon>
+        Login
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>home</mat-icon>
+        Startseite
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>settings</mat-icon>
+        Einstellungen
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content [ngStyle]="{'overflow':'hidden'}">
+    <div fxFill fxLayout="column">
+      <mat-toolbar color="primary">
+        <mat-icon (click)="drawer.toggle()">list</mat-icon>
+        <div>
+          <span>Agiles Prozessmanagement</span>
+        </div>
+        <div fxFlex></div>
+        <div fxFley="10">
+          <span fxLayoutAlign="end end" style="font-size: 18px;">{{ today | date: 'medium' }}</span>
+        </div>
+      </mat-toolbar>
+      <div fxFlex>
         <router-outlet></router-outlet>
       </div>
-      <!-- Footer -->
       <div fxLayoutAlign="start center" class="custom-footer" fxLayoutAlign="none center">
-          <div fxFlex="95">
-              <span fxLayoutAlign="start start">Copyright ©  - Entwickelt von Marco H.</span>
-            </div>
-            <div fxFlex="5">
-                <span>
-                    <img [ngStyle]="{'width':'93%'}" src="../assets/daimler-logo.PNG">
-                  </span>
-            </div>
+        <div fxFlex="90">
+          <span fxLayoutAlign="start start">Copyright © - Entwickelt von A H.</span>
+        </div>
+        <div fxFlex="10">
+          <span>
+            <img [ngStyle]="{'width':'96%'}" src="../assets/daimler-logo.PNG">
+          </span>
+        </div>
       </div>
+
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

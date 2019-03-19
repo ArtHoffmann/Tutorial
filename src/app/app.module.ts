@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,11 +11,16 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import localeDeAt from '@angular/common/locales/de-at';
 import { CredentialInterceptorProvider, ErrorInterceptor } from './interceptors';
 import { DataService } from './services/data-services/data.service';
+import { UserAddComponent } from './visualisation/components/user-add/user-add.component';
+import { UserPageComponent } from './visualisation/container/user-page/user-page.component';
+import { RouterModule } from '@angular/router';
 registerLocaleData(localeDeAt);
 
 @NgModule({
   declarations: [
     AppComponent,
+    UserAddComponent,
+    UserPageComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +29,7 @@ registerLocaleData(localeDeAt);
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    RouterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -49,6 +49,7 @@ const MATERIAL_MODULES = [
    declarations: [
    ],
    imports: [
+      FlexLayoutModule,
       CommonModule,
       FlexLayoutModule,
       MATERIAL_MODULES,
