@@ -1,15 +1,49 @@
 <mat-sidenav-container class="example-container" fullscreen>
-  <mat-sidenav mode="side" closed>Sidenav content</mat-sidenav>
   <mat-sidenav-content>
     <div fxFill fxLayout="column">
-      <mat-toolbar color="primary">
-        <span>TinkerForge Project</span>
+      <!-- Toolbar -->
+      <mat-toolbar color="primary" class="menu-bar mat-elevation-z1">
+        <mat-icon (click)="drawer.toggle()" [ngStyle]="{'margin':'5px'}">list</mat-icon>
+        <span>Agiles Prozessmanagement</span>
       </mat-toolbar>
-      <div class="sth" fxFlex [ngStyle]="{'overflow':'hidden'}">
+      <mat-drawer-container [hasBackdrop]="true" fxFlex>
+        <mat-drawer #drawer [mode]="'side'">
+          <mat-nav-list>
+            <mat-list-item>
+              <mat-icon>home</mat-icon>
+              Startseite
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon>settings</mat-icon>
+              Einstellungen
+            </mat-list-item>
+
+          </mat-nav-list>
+        </mat-drawer>
+
+        <mat-drawer-content fxFill>
+          <mat-card fxFlex>
+            <mat-card-title>App-Component</mat-card-title>
+            <mat-card-subtitle>Startseite</mat-card-subtitle>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+
+            </mat-card-content>
+          </mat-card>
+        </mat-drawer-content>
+      </mat-drawer-container>
+
+
+
+
+
+      <!-- Router outlet for navigation -->
+      <div>
         <router-outlet></router-outlet>
       </div>
+      <!-- Footer -->
       <div class="custom-footer" fxLayoutAlign="none center">
-        <span fxFlex >
+        <span fxFlex>
           <span> Entwickelt durch M.H. </span>
         </span>
       </div>
