@@ -1,3 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container" fullscreen>
+  <mat-sidenav mode="side" closed>Sidenav content</mat-sidenav>
+  <mat-sidenav-content>
+    <div fxFill fxLayout="column">
+      <mat-toolbar color="primary">
+        <span>TinkerForge Project</span>
+      </mat-toolbar>
+      <div class="sth" fxFlex [ngStyle]="{'overflow':'hidden'}">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="custom-footer" fxLayoutAlign="none center">
+        <span fxFlex >
+          <span> Entwickelt durch M.H. </span>
+        </span>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
