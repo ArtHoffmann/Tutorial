@@ -35,7 +35,12 @@
             <mat-card-subtitle>Startseite</mat-card-subtitle>
             <mat-divider></mat-divider>
             <mat-card-content>
-
+              <ng-container *ngIf="users$ | async as user">
+                <mat-list *ngFor="let u of user">
+                  <mat-list-item>{{u | json}}</mat-list-item>
+                  <mat-divider></mat-divider>
+                </mat-list>
+              </ng-container>
             </mat-card-content>
           </mat-card>
         </mat-drawer-content>

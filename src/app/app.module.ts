@@ -8,7 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import localeDeAt from '@angular/common/locales/de-at';
-import { CredentialInterceptorProvider } from './interceptors';
+import { CredentialInterceptorProvider, ErrorInterceptor } from './interceptors';
+import { DataService } from './services/data-services/data.service';
 registerLocaleData(localeDeAt);
 
 @NgModule({
@@ -32,9 +33,11 @@ registerLocaleData(localeDeAt);
   ],
   providers: [
     CredentialInterceptorProvider,
+    ErrorInterceptor,
     {
       provide: LOCALE_ID, useValue: 'de-at'
-    }
+    },
+    DataService
   ],
   bootstrap: [AppComponent]
 })
