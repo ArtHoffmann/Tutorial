@@ -25,3 +25,32 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Install node_modules
+
+run npm install @angular/cdk --save
+npm install @ngx-translate/core --save
+npm install --save @angular/material @angular/cdk @angular/animations
+npm install --save hammerjs -> import in main.ts 
+
+after 
+
+npm install --save
+
+
+## @angular/core - failure
+
+
+This problem apparently was being caused by the CDK and material modules of angular. I don't exactly know how it happend but I fixed it.
+
+I fixed it by following an answer in this github issue: https://github.com/angular/material2/issues/8306
+
+Solution
+
+To fix this issue you have to run the following commands:
+
+npm install --save @angular/material @angular/cdk
+rm -rf node_modules
+npm install
+

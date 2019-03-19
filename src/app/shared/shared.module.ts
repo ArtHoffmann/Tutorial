@@ -47,7 +47,6 @@ const MATERIAL_MODULES = [
 
 @NgModule({
    declarations: [
-
    ],
    imports: [
       CommonModule,
@@ -61,7 +60,7 @@ const MATERIAL_MODULES = [
       FlexLayoutModule,
       MATERIAL_MODULES,
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
    ],
    providers: [
 

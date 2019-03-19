@@ -2,13 +2,22 @@
   <mat-sidenav-content>
     <div fxFill fxLayout="column">
       <!-- Toolbar -->
-      <mat-toolbar color="primary" class="menu-bar mat-elevation-z1">
+      <mat-toolbar fxLayoutAlign="start center" color="primary" class="menu-bar mat-elevation-z1">
         <mat-icon (click)="drawer.toggle()" [ngStyle]="{'margin':'5px'}">list</mat-icon>
-        <span>Agiles Prozessmanagement</span>
+        <div fxFlex="90">
+          <span fxLayoutAlign="start start">Agiles Prozessmanagement</span>
+        </div>
+        <div fxFley="10">
+          <span fxLayoutAlign="end end" style="font-size: 18px;">{{ today | date: 'medium' }}</span>
+        </div>
       </mat-toolbar>
       <mat-drawer-container [hasBackdrop]="true" fxFlex>
         <mat-drawer #drawer [mode]="'side'">
           <mat-nav-list>
+            <mat-list-item>
+              <mat-icon>account_circle</mat-icon>
+              Login
+            </mat-list-item>
             <mat-list-item>
               <mat-icon>home</mat-icon>
               Startseite
@@ -17,7 +26,6 @@
               <mat-icon>settings</mat-icon>
               Einstellungen
             </mat-list-item>
-
           </mat-nav-list>
         </mat-drawer>
 
@@ -42,10 +50,15 @@
         <router-outlet></router-outlet>
       </div>
       <!-- Footer -->
-      <div class="custom-footer" fxLayoutAlign="none center">
-        <span fxFlex>
-          <span> Entwickelt durch M.H. </span>
-        </span>
+      <div fxLayoutAlign="start center" class="custom-footer" fxLayoutAlign="none center">
+          <div fxFlex="95">
+              <span fxLayoutAlign="start start">Copyright ©  - Entwickelt von Marco H.</span>
+            </div>
+            <div fxFlex="5">
+                <span>
+                    <img [ngStyle]="{'width':'93%'}" src="../assets/daimler-logo.PNG">
+                  </span>
+            </div>
       </div>
     </div>
   </mat-sidenav-content>
