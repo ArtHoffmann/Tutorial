@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-add',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAddComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      userIdentification: ['', Validators.required],
+      selectedLine: null
+    });
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+    // do smth
+    }
+  }
+
+  isFieldInvalid(field: string) {
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched)
+    );
   }
 
 }
