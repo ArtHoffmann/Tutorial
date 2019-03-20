@@ -11,9 +11,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import localeDeAt from '@angular/common/locales/de-at';
 import { CredentialInterceptorProvider, ErrorInterceptor } from './interceptors';
 import { DataService } from './services/data-services/data.service';
-import { UserAddComponent } from './visualisation/components/user-add/user-add.component';
-import { UserPageComponent } from './visualisation/container/user-page/user-page.component';
 import { RouterModule } from '@angular/router';
+import { UserAddComponent } from './visualisation/configuration/components/user-add/user-add.component';
+import { UserPageComponent } from './visualisation/configuration/containers/user-page/user-page.component';
+import { HomeComponent } from './visualisation/home/components/home/home.component';
+import { HomeShowComponent } from './visualisation/home/containers/home-show/home-show.component';
 registerLocaleData(localeDeAt);
 
 @NgModule({
@@ -21,6 +23,8 @@ registerLocaleData(localeDeAt);
     AppComponent,
     UserAddComponent,
     UserPageComponent,
+    HomeComponent,
+    HomeShowComponent,
   ],
   imports: [
     CommonModule,
