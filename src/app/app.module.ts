@@ -14,7 +14,6 @@ import { DataService } from './services/data-services/data.service';
 import { RouterModule } from '@angular/router';
 import { UserAddComponent } from './visualisation/configuration/components/user-add/user-add.component';
 import { UserPageComponent } from './visualisation/configuration/containers/user-page/user-page.component';
-import { HomeComponent } from './visualisation/home/components/home/home.component';
 import { HomeShowComponent } from './visualisation/home/containers/home-show/home-show.component';
 registerLocaleData(localeDeAt);
 
@@ -23,7 +22,6 @@ registerLocaleData(localeDeAt);
     AppComponent,
     UserAddComponent,
     UserPageComponent,
-    HomeComponent,
     HomeShowComponent,
   ],
   imports: [

@@ -1,29 +1,10 @@
-<div fxFlexFill>
-    <mat-card class="example-card" fxLayout="column">
+<div class="one" fxFill>
+    <mat-card class="mat-card-extra" fxFlex>
         <mat-card-header>
-            <mat-card-title>Einstellungen</mat-card-title>
-            <mat-card-subtitle>Hier passiert etwas</mat-card-subtitle>
+            <mat-card-title>Template</mat-card-title>
+            <mat-card-subtitle>Template</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content fxFlex>
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="column" >
-                <mat-form-field>
-                    <input matInput placeholder="hier steht was" formControlName="value" required>
-                </mat-form-field>
-                <mat-form-field >
-                    <input matInput placeholder="hier steht was" formControlName="value" required>
-                </mat-form-field>
-                <mat-form-field >
-                    <input matInput placeholder="hier steht was" formControlName="value" required>
-                </mat-form-field>
-                <mat-form-field >
-                    <input matInput placeholder="hier steht was" formControlName="value" required>
-                </mat-form-field>
-                <button mat-raised-button [ngStyle]="{'margin': '30px'}" color="primary" type="submit"
-                    [disabled]="false">
-                  Speichern
-                    <mat-icon svgIcon="frontify:login"></mat-icon>
-                </button>
-            </form>
+        <mat-card-content>
         </mat-card-content>
     </mat-card>
 </div>

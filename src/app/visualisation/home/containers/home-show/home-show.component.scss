@@ -1,11 +1,8 @@
-mat-card, .mat-card-sub {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30), 0 4px 6px rgba(0, 0, 0, 0.22);
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  .example-card {
-    min-height: 98%;
-  }
-  
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
