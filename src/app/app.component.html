@@ -1,11 +1,26 @@
-<mat-sidenav-container class="all-wrap" fullscreen>
-  <mat-sidenav #sidenav>
-    <mat-list>
-      <mat-list-item [routerLink]="['/']"> Foo</mat-list-item>
-      <mat-list-item [routerLink]="['/bar']"> Bar</mat-list-item>
+<mat-sidenav-container fullscreen fxFlex>
+  <mat-sidenav #sidenav mode="push" class="sidenav-container">
+    <mat-list [ngStyle]="{'overflow':'hidden'}">
+      <h2 mat-subheader>Sivenav - Template</h2>
+      <mat-list-item>
+        <mat-icon>info</mat-icon>
+        <p [ngStyle]="{'margin-left':'5px'}">Information</p>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>home</mat-icon>
+        <p [ngStyle]="{'margin-left':'5px'}"> Startseite </p>
+      </mat-list-item>
+      <mat-list-item (click)="toggleDiv()">
+        <mat-icon>settings</mat-icon>
+        <p [ngStyle]="{'margin-left':'5px'}"> Einstellungen </p>
+      </mat-list-item>
+      <mat-list-item [ngStyle]="{'margin-left':'20px'}" *ngIf="show">
+        <mat-icon>language</mat-icon> 
+        <p [ngStyle]="{'margin-left':'5px'}"> Sprache </p>
+      </mat-list-item>
     </mat-list>
   </mat-sidenav>
-  <div class="page-wrap">
+  <div class="wrap">
     <header role="banner">
       <mat-toolbar class="main-toolbar" color="primary">
         <mat-toolbar-row>
@@ -25,7 +40,7 @@
         </mat-toolbar-row>
       </mat-toolbar>
     </header>
-    <main class="content" style="height:90vh; overflow:auto">
+    <main style="height:90vh; overflow:auto; flex: 1">
       <router-outlet></router-outlet>
     </main>
     <footer fxLayoutAlign="center center">

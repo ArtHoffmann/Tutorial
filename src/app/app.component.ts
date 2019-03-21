@@ -10,7 +10,7 @@ import { Observable, Subscription, BehaviorSubject, timer, of } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
 
   title = 'Agiles Prozessmanagement';
-
+  show = false;
   private $timer = Subscription.EMPTY;
   today: number = Date.now();
   users$: BehaviorSubject<UserModel[]> = new BehaviorSubject<UserModel[]>(null);
@@ -28,5 +28,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.$timer.unsubscribe();
+  }
+  toggleDiv() {
+    this.show = !this.show;
   }
 }
