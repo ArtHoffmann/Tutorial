@@ -3,5 +3,5 @@ mat-card:hover {
 }
 mat-card {
   opacity: .6;
-  transition:opacity 500ms ease-in;
+  transition:opacity 500ms ease-in-out;
 }
