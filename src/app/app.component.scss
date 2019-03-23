@@ -1,7 +1,16 @@
-footer {
-    background: #607d8b;
-    color: white;
-}
+@import '../styles.scss';
+
+
+
 mat-list-item:hover {
     background-color: rgba(216, 213, 213, 0.9);
+}
+footer.primary {
+    background: map-get(map-get($colors, primary), base);
+    height:30px;
+}
+
+footer.second {
+    background: map-get(map-get($colors, primary), second);
+    height:30px;
 }

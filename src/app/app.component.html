@@ -1,55 +1,69 @@
-<mat-sidenav-container fullscreen fxFlex>
-  <mat-sidenav #sidenav mode="push">
-    <mat-list [ngStyle]="{'overflow':'hidden'}">
-      <h2 mat-subheader>Sivenav - Template</h2>
-      <mat-list-item class="mat-list-item-focus">
-        <mat-icon>info</mat-icon>
-        <a [ngStyle]="{'margin-left':'5px'}">Information</a>
-      </mat-list-item>
-      <mat-list-item routerLink="/home" class="mat-list-item-focus">
-        <mat-icon>home</mat-icon>
-        <a [ngStyle]="{'margin-left':'5px'}"> Startseite </a>
-      </mat-list-item>
-      <mat-list-item (click)="toggleDiv()" class="mat-list-item-focus">
-        <mat-icon>settings</mat-icon>
-        <a [ngStyle]="{'margin-left':'5px'}"> Einstellungen </a>
-      </mat-list-item> 
-      <mat-list-item [ngStyle]="{'margin-left':'20px'}" *ngIf="show" class="mat-list-item-focus">
-        <mat-icon>language</mat-icon>
-        <a [ngStyle]="{'margin-left':'5px'}"> Sprache </a>
-      </mat-list-item>
-      <mat-list-item [ngStyle]="{'margin-left':'20px'}" *ngIf="show" class="mat-list-item-focus">
-        <mat-icon>format_color_fill</mat-icon>
-        <a [ngStyle]="{'margin-left':'5px'}"> Design </a>
-      </mat-list-item>
-    </mat-list>
-  </mat-sidenav>
-  <div class="wrap">
-    <header role="banner">
-      <mat-toolbar class="main-toolbar" color="primary">
-        <mat-toolbar-row>
-          <button type="button" mat-icon-button (click)="sidenav.open()" title="Open sidenav">
-            <mat-icon>menu</mat-icon>
-          </button>
-          <span>Template</span>
-          <div fxFlex></div>
-          <div fxLayoutAlign="end">
-            <a style="font-size: 18px; margin-top:3px">{{ today | date:'medium' }}</a>
-            <button mat-button [matMenuTriggerFor]="appMenu">
-              <mat-icon>settings</mat-icon>
+<div class="app-{{appId}}-theme" id="appRootClass">
+  <mat-sidenav-container fullscreen fxFlex>
+    <mat-sidenav #sidenav mode="over">
+      <mat-list [ngStyle]="{'overflow':'hidden'}">
+        <h2 mat-subheader>Sivenav - Template</h2>
+        <mat-list-item class="mat-list-item-focus">
+          <mat-icon>info</mat-icon>
+          <a [ngStyle]="{'margin-left':'5px'}">Information</a>
+        </mat-list-item>
+        <mat-list-item routerLink="/home" class="mat-list-item-focus">
+          <mat-icon>home</mat-icon>
+          <a [ngStyle]="{'margin-left':'5px'}"> Startseite </a>
+        </mat-list-item>
+        <mat-list-item (click)="toggleDiv()" class="mat-list-item-focus">
+          <mat-icon>settings</mat-icon>
+          <a [ngStyle]="{'margin-left':'5px'}"> Einstellungen </a>
+        </mat-list-item>
+        <mat-list-item [ngStyle]="{'margin-left':'20px'}" *ngIf="show" class="mat-list-item-focus">
+          <mat-icon>language</mat-icon>
+          <a [ngStyle]="{'margin-left':'5px'}"> Sprache </a>
+        </mat-list-item>
+        <!-- <mat-list-item [ngStyle]="{'margin-left':'20px'}" *ngIf="show" class="mat-list-item-focus">
+          <mat-icon>format_color_fill</mat-icon>
+          <a [ngStyle]="{'margin-left':'5px'}"> Design </a>
+        </mat-list-item> -->
+      </mat-list>
+    </mat-sidenav>
+    <div class="wrap">
+      <header role="banner">
+        <mat-toolbar class="main-toolbar" color="primary">
+          <mat-toolbar-row>
+            <button type="button" mat-icon-button (click)="sidenav.open()" title="Open sidenav">
+              <mat-icon>menu</mat-icon>
             </button>
-          </div>
-          <mat-menu #appMenu="matMenu">
-            <button mat-menu-item> Settings </button>
-          </mat-menu>
-        </mat-toolbar-row>
-      </mat-toolbar>
-    </header>
-    <main style="height:90vh; overflow:auto; flex: 1">
-      <router-outlet></router-outlet>
-    </main>
-    <footer fxLayoutAlign="center center">
-      Sticky - Hier befindet sich der footer!
-    </footer>
-  </div>
-</mat-sidenav-container>
+            <span>Template</span>
+            <div fxFlex></div>
+            <div fxLayoutAlign="end">
+              <a style="font-size: 18px; margin-top:3px">{{ today | date:'medium' }}</a>
+              <button mat-button [matMenuTriggerFor]="appMenu">
+                <mat-icon>format_color_fill</mat-icon>
+              </button>
+            </div>
+            <mat-menu #appMenu="matMenu" notificationsMenu="matMenu" [overlapTrigger]="false">
+              <mat-list [ngStyle]="{'overflow':'hidden'}">
+                  <h3 mat-subheader>Theming</h3>
+                <mat-list-item (click)="switchTheme('theme2')">
+                  <a [ngStyle]="{'margin-left':'5px'}">Default</a>
+                </mat-list-item>
+                <mat-list-item (click)="switchTheme('theme1')">
+                  <a [ngStyle]="{'margin-left':'5px'}">Dark</a>
+                </mat-list-item>
+              </mat-list>
+
+
+              <!-- <button value='theme1' mat-menu-item (click)="switchTheme('theme1')">Theme 1</button>
+              <button value='theme2' mat-menu-item (click)="switchTheme('theme2')">Theme 2</button> -->
+            </mat-menu>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </header>
+      <main style="height:90vh; overflow:auto; flex: 1">
+        <router-outlet></router-outlet>
+      </main>
+      <footer fxLayoutAlign="center center" [ngClass]="switchTheme(appId) === 'theme2' ? 'primary' : 'second'">
+        Sticky - Hier befindet sich der footer!
+      </footer>
+    </div>
+  </mat-sidenav-container>
+</div>

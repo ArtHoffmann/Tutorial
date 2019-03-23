@@ -8,24 +8,26 @@ import { Observable, Subscription, BehaviorSubject, timer, of } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-
-  title = 'Agiles Prozessmanagement';
+  appId = 'theme2';
+  title = 'Template';
+  theme: string;
   show = false;
   private $timer = Subscription.EMPTY;
   today: number = Date.now();
-  users$: BehaviorSubject<UserModel[]> = new BehaviorSubject<UserModel[]>(null);
 
   constructor(private dataService: DataService) {
-    this.dataService.getUsers().subscribe(x => this.users$.next(x));
+
   }
 
   ngOnInit(): void {
     this.$timer = timer(1000, 1000)
-    .subscribe(() => {
-      this.today = Date.now();
-    });
+      .subscribe(() => {
+        this.today = Date.now();
+      });
   }
-
+  switchTheme(appId: string): string {
+    return this.appId = appId;
+  }
   ngOnDestroy(): void {
     this.$timer.unsubscribe();
   }

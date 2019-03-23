@@ -1,21 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/_theming.scss';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-@import '~@angular/material/theming';
 
-@include mat-core();
+$colors: (
+  primary: (
+    base: #1a237e,
+    second : #212121,
+  )
+);
 
-$my-app-primary: mat-palette($mat-blue-grey);
-$my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
-$my-app-warn:    mat-palette($mat-deep-orange);
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
-
-@include angular-material-theme($my-app-theme);
-.alternate-theme {
-  $alternate-primary: mat-palette($mat-light-blue);
-  $alternate-accent:  mat-palette($mat-yellow, 400);
-  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+.app-theme1-theme {
+	$app-primary: mat-palette($mat-gray, 900);
+	$app-accent: mat-palette($mat-gray, 500);
+  $app-warn: mat-palette($mat-gray, 100);
+	$my-app-theme: mat-light-theme($app-primary, $app-accent, $app-warn); 
+	  @include angular-material-theme($my-app-theme); 
+  }
   
-  @include angular-material-theme($alternate-theme);
-}
+  .app-theme2-theme {
+  $app-primary: mat-palette($mat-indigo, 900);
+	$app-accent: mat-palette($mat-indigo, 500);
+  $app-warn: mat-palette($mat-indigo, 100);
+  $my-app-theme: mat-light-theme($app-primary, $app-accent, $app-warn); 
+	@include angular-material-theme($my-app-theme);
+  }
 
 .wrap {
   display: flex;
@@ -31,10 +40,7 @@ main {
     display: block;
   }
 }
-footer {
-  background-color: gray;
-  height:30px;
-}
+
 mat-card {
   margin-left: 5px;
   margin-right: 5px;
