@@ -20,9 +20,7 @@ registerLocaleData(localeDeAt);
 @NgModule({
   declarations: [
     AppComponent,
-    UserAddComponent,
-    UserPageComponent,
-    HomeShowComponent,
+    HomeShowComponent
   ],
   imports: [
     CommonModule,

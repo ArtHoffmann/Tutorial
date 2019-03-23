@@ -1,3 +1,7 @@
-mat-card-content {
-  height: 95%; //Or any other height you wish
+mat-card:hover {
+  opacity: 1;
+}
+mat-card {
+  opacity: .6;
+  transition:opacity 500ms ease-in;
 }

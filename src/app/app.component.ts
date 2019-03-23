@@ -12,6 +12,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'Template';
   theme: string;
   show = false;
+  showPersonContainer = false;
   private $timer = Subscription.EMPTY;
   today: number = Date.now();
 
@@ -33,5 +34,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   toggleDiv() {
     this.show = !this.show;
+  }
+  togglePersonDiv() {
+    this.showPersonContainer = !this.showPersonContainer;
   }
 }

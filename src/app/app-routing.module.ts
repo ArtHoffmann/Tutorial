@@ -1,9 +1,10 @@
+import { HomeShowComponent } from './visualisation/home/containers/home-show/home-show.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { UserAddComponent } from './visualisation/configuration/components/user-add/user-add.component';
 import { UserPageComponent } from './visualisation/configuration/containers/user-page/user-page.component';
-import { HomeShowComponent } from './visualisation/home/containers/home-show/home-show.component';
+
 
 const routes: Routes = [
   // local
@@ -18,12 +19,10 @@ const routes: Routes = [
     component: HomeShowComponent
   },
   {
-    path: 'user-add',
-    component: UserAddComponent
-  },
-  {
-    path: 'user-page',
-    component: UserPageComponent
+    path: 'visualisation',
+    // component: HomeComponent
+    // loadChildren: './visualisation/visualisation.module#VisualisationModule',
+    loadChildren: './visualisation/visualisation.module#VisualisationModule'
   },
   {
     path: '**',
@@ -34,7 +33,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     useHash: true,
-    // preloadingStrategy: PreloadAllModules,
+    preloadingStrategy: PreloadAllModules,
   })],
   exports: [RouterModule]
 })

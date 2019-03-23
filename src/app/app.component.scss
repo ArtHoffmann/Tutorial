@@ -7,10 +7,20 @@ mat-list-item:hover {
 }
 footer.primary {
     background: map-get(map-get($colors, primary), base);
+    color:white;
     height:30px;
 }
 
 footer.second {
     background: map-get(map-get($colors, primary), second);
+    color:white;
     height:30px;
 }
+.background-cover {
+    background: url("../assets/images/background.jpg") rgba(238, 234, 234, 0.796) !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover !important;
+  }
+  
