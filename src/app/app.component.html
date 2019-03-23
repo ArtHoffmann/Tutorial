@@ -1,22 +1,26 @@
 <mat-sidenav-container fullscreen fxFlex>
-  <mat-sidenav #sidenav mode="push" class="sidenav-container">
+  <mat-sidenav #sidenav mode="push">
     <mat-list [ngStyle]="{'overflow':'hidden'}">
       <h2 mat-subheader>Sivenav - Template</h2>
-      <mat-list-item>
+      <mat-list-item class="mat-list-item-focus">
         <mat-icon>info</mat-icon>
-        <p [ngStyle]="{'margin-left':'5px'}">Information</p>
+        <a [ngStyle]="{'margin-left':'5px'}">Information</a>
       </mat-list-item>
-      <mat-list-item>
+      <mat-list-item routerLink="/home" class="mat-list-item-focus">
         <mat-icon>home</mat-icon>
-        <p [ngStyle]="{'margin-left':'5px'}"> Startseite </p>
+        <a [ngStyle]="{'margin-left':'5px'}"> Startseite </a>
       </mat-list-item>
-      <mat-list-item (click)="toggleDiv()">
+      <mat-list-item (click)="toggleDiv()" class="mat-list-item-focus">
         <mat-icon>settings</mat-icon>
-        <p [ngStyle]="{'margin-left':'5px'}"> Einstellungen </p>
+        <a [ngStyle]="{'margin-left':'5px'}"> Einstellungen </a>
+      </mat-list-item> 
+      <mat-list-item [ngStyle]="{'margin-left':'20px'}" *ngIf="show" class="mat-list-item-focus">
+        <mat-icon>language</mat-icon>
+        <a [ngStyle]="{'margin-left':'5px'}"> Sprache </a>
       </mat-list-item>
-      <mat-list-item [ngStyle]="{'margin-left':'20px'}" *ngIf="show">
-        <mat-icon>language</mat-icon> 
-        <p [ngStyle]="{'margin-left':'5px'}"> Sprache </p>
+      <mat-list-item [ngStyle]="{'margin-left':'20px'}" *ngIf="show" class="mat-list-item-focus">
+        <mat-icon>format_color_fill</mat-icon>
+        <a [ngStyle]="{'margin-left':'5px'}"> Design </a>
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
@@ -30,6 +34,7 @@
           <span>Template</span>
           <div fxFlex></div>
           <div fxLayoutAlign="end">
+            <a style="font-size: 18px; margin-top:3px">{{ today | date:'medium' }}</a>
             <button mat-button [matMenuTriggerFor]="appMenu">
               <mat-icon>settings</mat-icon>
             </button>
@@ -44,7 +49,7 @@
       <router-outlet></router-outlet>
     </main>
     <footer fxLayoutAlign="center center">
-      footer
+      Sticky - Hier befindet sich der footer!
     </footer>
   </div>
 </mat-sidenav-container>
