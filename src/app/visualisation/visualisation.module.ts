@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { VisualisationRoutingModule } from './visualisation-routing.module';
 import { HomeShowComponent } from './home/containers/home-show/home-show.component';
 import { UserAddComponent } from './configuration/components/user-add/user-add.component';
+import { UserListComponent } from './configuration/components/user-list/user-list.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UserAddComponent } from './configuration/components/user-add/user-add.c
     ],
     declarations: [
         UserAddComponent,
-        UserPageComponent
+        UserPageComponent,
+        UserListComponent
     ],
     entryComponents: [
 

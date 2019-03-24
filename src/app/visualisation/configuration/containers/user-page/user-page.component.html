@@ -1,35 +1,36 @@
-<mat-card class="mat-card-extra" fxFlex>
-        <mat-card-header>
-          <div style="position: absolute; right: 20px;">
-            <mat-slide-toggle>Alle Nutzer anzeigen</mat-slide-toggle>
-          </div>
-          <mat-icon mat-card-avatar>person</mat-icon>
-          <mat-card-title>
-            Nutzer
-          </mat-card-title>
-          <mat-card-subtitle>...</mat-card-subtitle>
-        </mat-card-header>
-      
-        <mat-card-content>
-          <div>
-            <mat-tab-group fxFlex mat-stretch-tabs>
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <mat-icon>reorder</mat-icon> &nbsp; Nutzer-Liste
-                </ng-template>
-                <ng-container>
-               <!--  Nutzer Liste folgt  -->
-                </ng-container>
-              </mat-tab>
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <mat-icon>person_add</mat-icon> &nbsp; Nutzer Hinzufügen
-                </ng-template>
-                <ng-container>
-                 <app-user-add></app-user-add>
-                </ng-container>
-              </mat-tab>
-            </mat-tab-group>
-          </div>
-        </mat-card-content>
-      </mat-card>
+<div  fxLayout="column" style=" overflow: hidden">
+  <mat-card >
+    <mat-card-header>
+     <div fxFlex>
+     </div>
+        <mat-slide-toggle>Alle Nutzer anzeigen</mat-slide-toggle>
+ 
+      <mat-icon mat-card-avatar>person</mat-icon>
+      <mat-card-title>
+        Nutzer
+      </mat-card-title>
+      <mat-card-subtitle>...</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-tab-group mat-stretch-tabs (selectedTabChange)="onTabChanged($event)">
+          <mat-tab style="overflow: hidden">
+            <ng-template mat-tab-label>
+              <mat-icon>reorder</mat-icon> &nbsp; Nutzer-Liste
+            </ng-template>
+            <ng-container *ngIf="users$">
+              <app-user-list (OnCreate)="loadData()" [data]="users$ | async"></app-user-list>
+            </ng-container>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon>person_add</mat-icon> &nbsp; Nutzer Hinzufügen
+            </ng-template>
+            <ng-container>
+              <app-user-add></app-user-add>
+            </ng-container>
+          </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

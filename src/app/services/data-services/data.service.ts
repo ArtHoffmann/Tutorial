@@ -25,4 +25,16 @@ export class DataService {
   getUsers(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(`${this.endPoint}/all`);
   }
+  createUser(firstName: string, lastName: string) {
+    const values = {
+      // tslint:disable-next-line:object-literal-key-quotes
+      'firstName': firstName,
+      // tslint:disable-next-line:object-literal-key-quotes
+      'lastName': lastName
+    };
+    console.log('dataService ' + JSON.stringify(values));
+    return this.http.post<any>(`${this.endPoint}/createUser`, values, {
+      headers: this.JsonContentHeader
+    });
+  }
 }

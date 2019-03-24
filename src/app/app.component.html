@@ -17,14 +17,15 @@
           <a [ngStyle]="{'margin-left':'5px'}"> Nutzer - Konfiguration </a>
         </mat-list-item>
         <ng-container *ngIf="showPersonContainer">
-          <mat-list-item [ngStyle]="{'margin-left':'20px'}" class="mat-list-item-focus" routerLink="/user-add">
+          <mat-list-item [ngStyle]="{'margin-left':'20px'}" class="mat-list-item-focus"
+            routerLink="visualisation/user-page">
             <mat-icon>person_add</mat-icon>
             <a [ngStyle]="{'margin-left':'5px'}"> Nutzer hinzufügen </a>
           </mat-list-item>
           <mat-list-item [ngStyle]="{'margin-left':'20px'}" class="mat-list-item-focus">
-              <mat-icon>list</mat-icon>
-              <a [ngStyle]="{'margin-left':'5px'}"> Nutzer-Liste </a>
-            </mat-list-item>
+            <mat-icon>list</mat-icon>
+            <a [ngStyle]="{'margin-left':'5px'}"> Nutzer-Liste </a>
+          </mat-list-item>
         </ng-container>
         <mat-list-item class="mat-list-item-focus">
           <mat-icon>mail_outline</mat-icon>
@@ -44,9 +45,9 @@
             <a [ngStyle]="{'margin-left':'5px'}"> Activity Logs </a>
           </mat-list-item>
           <mat-list-item [ngStyle]="{'margin-left':'20px'}" class="mat-list-item-focus">
-              <mat-icon>power_settings_new</mat-icon>
-              <a [ngStyle]="{'margin-left':'5px'}"> Logout </a>
-            </mat-list-item>
+            <mat-icon>power_settings_new</mat-icon>
+            <a [ngStyle]="{'margin-left':'5px'}"> Logout </a>
+          </mat-list-item>
         </ng-container>
       </mat-list>
     </mat-sidenav>
@@ -80,10 +81,10 @@
         </mat-toolbar>
       </header>
       <main style="height:90vh; overflow:auto; flex: 1" class="background-cover">
-        <router-outlet></router-outlet>
+        <router-outlet #outlet (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
       </main>
       <footer fxLayoutAlign="center center" [ngClass]="switchTheme(appId) === 'theme2' ? 'primary' : 'second'">
-          Entwickelt durch Artur Hoffmann
+        Entwickelt durch Artur Hoffmann
       </footer>
     </div>
   </mat-sidenav-container>

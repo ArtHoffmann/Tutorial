@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { UserAddComponent } from './configuration/components/user-add/user-add.component';
 import { UserPageComponent } from './configuration/containers/user-page/user-page.component';
+import { UserListComponent } from './configuration/components/user-list/user-list.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'user-add',
     component: UserAddComponent
+  },
+  {
+    path: 'user-list',
+    component: UserListComponent
   },
   {
     path: 'user-page',
