@@ -80,9 +80,18 @@
           </mat-toolbar-row>
         </mat-toolbar>
       </header>
-      <main style="height:90vh; overflow:auto; flex: 1" class="background-cover">
+      <!-- <main style="height:90vh; overflow:auto; flex: 1" class="background-cover">
         <router-outlet #outlet (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
+      </main> -->
+      <div style="height: 0.5vh; overflow: hidden" class="background-cover">
+        <mat-progress-bar *ngIf="!showOutlet" mode="indeterminate"></mat-progress-bar>
+      </div>
+      <main class="background-cover">
+        <div style="height:89.8vh; overflow:hidden; flex: 1">
+          <router-outlet #outlet (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
+        </div>
       </main>
+
       <footer fxLayoutAlign="center center" [ngClass]="switchTheme(appId) === 'theme2' ? 'primary' : 'second'">
         Entwickelt durch Artur Hoffmann
       </footer>

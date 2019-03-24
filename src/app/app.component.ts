@@ -1,13 +1,15 @@
 import { UserModel } from './models/user-model';
 import { DataService } from './services/data-services/data.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription, BehaviorSubject, timer, of } from 'rxjs';
+import { Observable, Subscription, BehaviorSubject, timer, of, interval } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
+  progressbarValue = 100;
+  curSec = 0;
   appId = 'theme2';
   title = 'Template';
   theme: string;
@@ -26,6 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.today = Date.now();
       });
+
   }
   switchTheme(appId: string): string {
     return this.appId = appId;
@@ -40,14 +43,25 @@ export class AppComponent implements OnInit, OnDestroy {
     this.showPersonContainer = !this.showPersonContainer;
   }
   onActivate(event: any) {
-    console.log('onActivate');
     setTimeout(() => {
       this.showOutlet = true;
-    }, 700);
+    }, 800);
   }
 
   onDeactivate(event: any) {
-    console.log('onDeactivate');
     this.showOutlet = false;
+  }
+  startTimer(seconds: number) {
+    const time = seconds;
+    const timer$ = interval(1000);
+
+    const sub = timer$.subscribe((sec) => {
+      this.progressbarValue = 100 - sec * 100 / seconds;
+      this.curSec = sec;
+
+      if (this.curSec === seconds) {
+        sub.unsubscribe();
+      }
+    });
   }
 }
