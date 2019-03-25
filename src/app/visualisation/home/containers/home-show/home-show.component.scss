@@ -4,5 +4,14 @@ mat-card:hover {
 mat-card {
     opacity: .6;
     transition:opacity 500ms ease-in-out;
-   
+}
+mat-card{
+    width: 100vw;
+    height: 88.0vh;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
 }

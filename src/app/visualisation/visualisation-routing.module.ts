@@ -15,14 +15,6 @@ const routes: Routes = [
 
   },
   {
-    path: 'user-add',
-    component: UserAddComponent
-  },
-  {
-    path: 'user-list',
-    component: UserListComponent
-  },
-  {
     path: 'user-page',
     component: UserPageComponent
   },
