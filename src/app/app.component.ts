@@ -1,13 +1,15 @@
 import { UserModel } from './models/user-model';
 import { DataService } from './services/data-services/data.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Observable, Subscription, BehaviorSubject, timer, of, interval } from 'rxjs';
+import { MatSidenav } from '@angular/material';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
+  @ViewChild('sidenav') sidenav: MatSidenav;
   progressbarValue = 100;
   curSec = 0;
   appId = 'theme2';
@@ -51,17 +53,7 @@ export class AppComponent implements OnInit, OnDestroy {
   onDeactivate(event: any) {
     this.showOutlet = false;
   }
-  startTimer(seconds: number) {
-    const time = seconds;
-    const timer$ = interval(1000);
-
-    const sub = timer$.subscribe((sec) => {
-      this.progressbarValue = 100 - sec * 100 / seconds;
-      this.curSec = sec;
-
-      if (this.curSec === seconds) {
-        sub.unsubscribe();
-      }
-    });
+  close() {
+    this.sidenav.close();
   }
 }

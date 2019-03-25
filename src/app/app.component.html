@@ -1,6 +1,6 @@
-<div class="app-{{appId}}-theme" id="appRootClass">
-  <mat-sidenav-container fullscreen fxFlex>
-    <mat-sidenav #sidenav mode="over">
+<div class="app-{{appId}}-theme" id="appRootClass" >
+  <mat-sidenav-container fullscreen fxFlex >
+    <mat-sidenav #sidenav mode="side">
       <mat-list [ngStyle]="{'overflow':'hidden'}">
         <h2 mat-subheader>Sivenav - Template</h2>
         <mat-list-item class="mat-list-item-focus">
@@ -51,11 +51,11 @@
         </ng-container>
       </mat-list>
     </mat-sidenav>
-    <div class="wrap">
+    <div class="wrap" >
       <header role="banner">
         <mat-toolbar class="main-toolbar" color="primary">
           <mat-toolbar-row>
-            <button type="button" mat-icon-button (click)="sidenav.open()" title="Open sidenav">
+            <button type="button" mat-icon-button (click)="sidenav.toggle()" title="Open sidenav">
               <mat-icon>menu</mat-icon>
             </button>
             <span>Template</span>
@@ -86,7 +86,7 @@
       <div style="height: 0.5vh; overflow: hidden" class="background-cover">
         <mat-progress-bar *ngIf="!showOutlet" mode="indeterminate"></mat-progress-bar>
       </div>
-      <main class="background-cover">
+      <main class="background-cover" >
         <div style="height:89.8vh; overflow:hidden; flex: 1">
           <router-outlet #outlet (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
         </div>
